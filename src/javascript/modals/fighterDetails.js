@@ -8,15 +8,20 @@ export  function showFighterDetailsModal(fighter) {
 }
 
 function createFighterDetails(fighter) {
-  const { name } = fighter;
+  const { name, attack, defense, health } = fighter;
 
   const fighterDetails = createElement({ tagName: 'div', className: 'modal-body' });
   const nameElement = createElement({ tagName: 'span', className: 'fighter-name' });
-  
-  // show fighter name, attack, defense, health, image
+  const attackElement = createElement({ tagName: 'span', className: 'fighter-attack' });
+  const defenseElement = createElement({ tagName: 'span', className: 'fighter-defense' });
+  const healthElement = createElement({ tagName: 'span', className: 'fighter-health' });
 
-  nameElement.innerText = name;
-  fighterDetails.append(nameElement);
+  nameElement.innerText = 'Nickname: ' + name + '\n';
+  attackElement.innerText = 'Attack power: ' + attack + '\n';
+  defenseElement.innerText = 'Defense ability: ' +  defense + '\n';
+  healthElement.innerText = 'Health: ' + health + '\n';
+
+  fighterDetails.append(nameElement, attackElement, defenseElement, healthElement);
 
   return fighterDetails;
 }
